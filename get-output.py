@@ -18,6 +18,7 @@ fh2 = open(dc, 'w')
 def get_rioxx(repo_id):
     id = prefix + repo_id
     r = sickle.GetRecord(identifier=id, metadataPrefix='rioxx')
+    print("Got record in rioxx format")
     pp = pprint(r)
     fh1.write(pp)
     fh1.close()
@@ -25,6 +26,7 @@ def get_rioxx(repo_id):
 def get_dc(repo_id):
     id = prefix + repo_id
     r = sickle.GetRecord(identifier=id, metadataPrefix='oai_dc')
+    print("Got record in oai_dc format")
     pp = pprint(r)
     fh2.write(pp)
     fh2.close()
@@ -32,16 +34,15 @@ def get_dc(repo_id):
 def pprint(x):
     dom = xml.dom.minidom.parseString(str(x))
     pretty = dom.toprettyxml()
-    print(pretty)
+#    print(pretty) #for testing
     return pretty
     
 def main():
-    print(sys.argv)
-    print("rioxx format")
-    get_rioxx(sys.argv[1])
-    print("\n***************************************************\n")
-    print("Dublin Core format")
-    get_dc(sys.argv[1])
+    try:
+        get_rioxx(sys.argv[1])
+        get_dc(sys.argv[1])
+    except IndexError:
+        print("Usage:\n", sys.argv[0], "WorktribeOutputID")
 
 if __name__ == '__main__':
     sys.exit(main())  #
