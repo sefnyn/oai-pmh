@@ -7,23 +7,36 @@ sickle = Sickle(ENDPOINT)
 
 prefix = 'oai:durham-repository.worktribe.com:'
 TESTID = '1168839'
+rioxx = 'rioxx.xml'
+dc    = 'dc.xml'
+
+fh1 = open(rioxx, 'w')
+fh2 = open(dc, 'w')
+
 
 
 def get_rioxx(repo_id):
     id = prefix + repo_id
     r = sickle.GetRecord(identifier=id, metadataPrefix='rioxx')
-    dom = xml.dom.minidom.parseString(str(r))
-    pretty = dom.toprettyxml()
-    print(pretty)
+    pp = pprint(r)
+    fh1.write(pp)
+    fh1.close()
 
 def get_dc(repo_id):
     id = prefix + repo_id
     r = sickle.GetRecord(identifier=id, metadataPrefix='oai_dc')
-    dom = xml.dom.minidom.parseString(str(r))
+    pp = pprint(r)
+    fh2.write(pp)
+    fh2.close()
+
+def pprint(x):
+    dom = xml.dom.minidom.parseString(str(x))
     pretty = dom.toprettyxml()
     print(pretty)
-
+    return pretty
+    
 def main():
+    print(sys.argv)
     print("rioxx format")
     get_rioxx(sys.argv[1])
     print("\n***************************************************\n")
