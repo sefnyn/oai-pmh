@@ -1,3 +1,9 @@
 # oai-pmh
 
-## Testing OAI-PMH things
+## Requirements
+
+###
+pip install pyoai
+pip install sickle
+
+
