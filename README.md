@@ -3,7 +3,7 @@
 ## Requirements
 
 ###
-pip install pyoai  
-pip install sickle
+pip install ==pyoai==
+pip install ==sickle==
 
 
