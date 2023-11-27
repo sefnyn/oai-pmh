@@ -19,7 +19,7 @@ def get_rioxx(repo_id):
         r = sickle.GetRecord(identifier=longid, metadataPrefix='rioxx')
 #        print("Got record " + repo_id + " in rioxx format")
         pp = pprint(r)
-#    fh1.write(pp)
+        fh1.write(pp)
         return pp
     except:
         print("Skipping invalid output ID")
@@ -36,6 +36,12 @@ def analyse(r, id, ctr):
     if '<rioxxterms:version>' in r:
         fh2.write("Found VERSION in output " + id)
         ctr['version'] += 1
+    if '<ali:license_ref' in r:
+        fh2.write("Found LICENCE in output " + id)
+        ctr['licence'] += 1
+    if '<rioxxterms:version_of_record>' in r:
+        fh2.write("Found DOI in output " + id)
+        ctr['doi'] += 1
     ctr['total'] += 1
 
 
@@ -46,7 +52,7 @@ def pprint(x):
     return pretty
     
 def main():
-    count = {'type': 0, 'project': 0, 'version': 0, 'total': 0}
+    count = {'type': 0, 'project': 0, 'version': 0, 'licence': 0, 'doi': 0,'total': 0}
     try:
         with open(sys.argv[1]) as f:
             for oid in f:
@@ -59,7 +65,10 @@ def main():
         print("Outputs with a TYPE: " + str(count['type']))
         print("Outputs with a PROJECT: " + str(count['project']))
         print("Outputs with a VERSION: " + str(count['version']))
+        print("Outputs with a LICENCE: " + str(count['licence']))
+        print("Outputs with a DOI: "     + str(count['doi']))
 
+        
     except IndexError:
         print("Usage:\n", sys.argv[0], "FileContainingWorktribeOutputIDs")
     fh1.close()
