@@ -7,5 +7,5 @@ count = 0
 with fh as f:
     for oid in f:
         count += 1
-        if count % 10 == 0:
+        if count % 4 == 0:
             fh2.write(oid)
