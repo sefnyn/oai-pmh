@@ -61,16 +61,16 @@ def main():
                 if rec is not None:
                     analyse(rec, oid, count)
                 if count['total'] % 1000 == 0:
-                    print(str(count['total']) + " outputs processed")
-        print("Total outputs analysed: "      + str(count['total']))
-        print("Outputs with a LICENCE: "      + str(count['licence']))
-        print("Outputs with an IDENTIFIER: "  + str(count['ident']))
-        print("Outputs with a LANGUAGE: "     + str(count['lang']))
-        print("Outputs with a DATEACCEPTED: " + str(count['dateacc']))
-        print("Outputs with a PROJECT: "      + str(count['project']))
-        print("Outputs with a TYPE: "         + str(count['type']))
-        print("Outputs with a VERSION: "      + str(count['version']))
-        print("Outputs with a DOI: "          + str(count['doi']))
+                    print(str(count['total'])     + " outputs processed")
+        print("Total outputs analysed: "          + str(count['total']))
+        print("Outputs with a LICENCE: "          + str(count['licence']))
+        print("Outputs with an IDENTIFIER: "      + str(count['ident']))
+        print("Outputs with a LANGUAGE: "         + str(count['lang']))
+        print("Outputs with a DATEACCEPTED: "     + str(count['dateacc']))
+        print("Outputs with a PROJECT (FUNDER): " + str(count['project']))
+        print("Outputs with a TYPE: "             + str(count['type']))
+        print("Outputs with a VERSION: "          + str(count['version']))
+        print("Outputs with a DOI: "              + str(count['doi']))
 
         
     except IndexError:
