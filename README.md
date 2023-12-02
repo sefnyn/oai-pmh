@@ -21,4 +21,7 @@ rioxx.xml
 
 ## Output
 logfile.log
+rioxx.xml
+
+**fileck.py** FileContainingWorktribeOutputIDs  # check for records with multiple files in <dc:identifier>
 
