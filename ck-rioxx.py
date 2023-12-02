@@ -37,6 +37,8 @@ def analyse(r, id, ctr):
         ctr['dateacc'] += 1
     if '<rioxxterms:project' in r:
         ctr['project'] += 1
+    if '<rioxxterms:publication_date' in r:
+        ctr['pubdate'] += 1
     if '<rioxxterms:type' in r:
         ctr['type'] += 1
     if '<rioxxterms:version>' in r:
@@ -53,7 +55,7 @@ def pprint(x):
     return pretty
     
 def main():
-    count = {'licence': 0, 'ident': 0, 'lang': 0, 'dateacc': 0, 'project': 0, 'type': 0, 'version': 0,  'doi': 0, 'total': 0}
+    count = {'licence': 0, 'ident': 0, 'lang': 0, 'dateacc': 0, 'project': 0, 'pubdate': 0,  'type': 0, 'version': 0,  'doi': 0, 'total': 0}
     try:
         with open(sys.argv[1]) as f:
             for oid in f:
@@ -61,16 +63,17 @@ def main():
                 if rec is not None:
                     analyse(rec, oid, count)
                 if count['total'] % 1000 == 0:
-                    print(str(count['total'])     + " outputs processed")
-        print("Total outputs analysed: "          + str(count['total']))
-        print("Outputs with a LICENCE: "          + str(count['licence']))
-        print("Outputs with an IDENTIFIER: "      + str(count['ident']))
-        print("Outputs with a LANGUAGE: "         + str(count['lang']))
-        print("Outputs with a DATEACCEPTED: "     + str(count['dateacc']))
-        print("Outputs with a PROJECT (FUNDER): " + str(count['project']))
-        print("Outputs with a TYPE: "             + str(count['type']))
-        print("Outputs with a VERSION: "          + str(count['version']))
-        print("Outputs with a DOI: "              + str(count['doi']))
+                    print(str(count['total'])      + " outputs processed")
+        print("Total outputs analysed: "           + str(count['total']))
+        print("Outputs with a LICENCE: "           + str(count['licence']))
+        print("Outputs with an IDENTIFIER: "       + str(count['ident']))
+        print("Outputs with a LANGUAGE: "          + str(count['lang']))
+        print("Outputs with a DATEACCEPTED: "      + str(count['dateacc']))
+        print("Outputs with a PROJECT (FUNDER): "  + str(count['project']))
+        print("Outputs with a PUBLICATION DATE: "  + str(count['pubdate']))
+        print("Outputs with a TYPE: "              + str(count['type']))
+        print("Outputs with a VERSION: "           + str(count['version']))
+        print("Outputs with a DOI: "               + str(count['doi']))
 
         
     except IndexError:
