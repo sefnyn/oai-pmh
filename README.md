@@ -20,7 +20,7 @@ rioxx.xml
 **ck-rioxx.py** FileContainingWorktribeOutputIDs  # check input file for RIOXX 2.0 compliance
 
 ## Output
-logfile.log
+logfile.log  
 rioxx.xml
 
 **fileck.py** FileContainingWorktribeOutputIDs  # check for records with multiple files in <dc:identifier>
