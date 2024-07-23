@@ -9,29 +9,29 @@ https://durham-repository.worktribe.com/oaiprovider
 pip install **pyoai**  
 pip install **sickle**
 
-## Usage:
-**get-output.py** WorktribeOutputID  # get one output in two metadata formats
+# Usage:
+## **get-output.py** WorktribeOutputID  # get one output in two metadata formats
 
-## Output
+### Output
 Two files:  
 dc.xml  
 rioxx.xml
 
-**ck-rioxx.py** FileContainingWorktribeOutputIDs  # check input file for RIOXX 2.0 compliance
+## **ck-rioxx.py** FileContainingWorktribeOutputIDs  # check input file for RIOXX 2.0 compliance
 
-## Output
+### Output
 logfile.log  
 rioxx.xml
 
-**fileck.py** FileContainingWorktribeOutputIDs  # check for records with multiple files in <dc:identifier>
+## **fileck.py** FileContainingWorktribeOutputIDs  # check for records with multiple files in <dc:identifier>
 
-## Output
+### Output
 Total outputs analysed: x   
 Outputs with multiple files: y   
 
-**get-doi.py** FileContainingWorktribeOutputIDs  # look for Worktribe records containing DOIs
+## **get-doi.py** FileContainingWorktribeOutputIDs  # look for Worktribe records containing DOIs
 
-## Output
+### Output
 Total outputs analysed:  77,648  
 Outputs with a DOI:  49,122   
 [Creates file doi.txt]
