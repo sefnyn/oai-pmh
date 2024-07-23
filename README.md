@@ -25,6 +25,10 @@ rioxx.xml
 
 **fileck.py** FileContainingWorktribeOutputIDs  # check for records with multiple files in <dc:identifier>
 
+## Output
+Total outputs analysed: x   
+Outputs with multiple files: y   
+
 **get-doi.py** FileContainingWorktribeOutputIDs  # look for Worktribe records containing DOIs
 
 ## Output
