@@ -25,3 +25,9 @@ rioxx.xml
 
 **fileck.py** FileContainingWorktribeOutputIDs  # check for records with multiple files in <dc:identifier>
 
+**get-doi.py** FileContainingWorktribeOutputIDs  # look for Worktribe records containing DOIs
+
+## Output
+Total outputs analysed:  77,648  
+Outputs with a DOI:  49,122   
+[Creates file doi.txt]
